@@ -1,14 +1,17 @@
 import { test, expect } from '@playwright/test'
+import { HomePage } from '../../Home/pages/home.page'
 import { CheckboxPage } from '../pages/checkboxList.page'
 
 let checkboxPage: CheckboxPage
 
 test.beforeEach(async ({ page }) => {
-  // Instantiate the Page Object
-  checkboxPage = new CheckboxPage(page)
+  // Open Homepage and click in the link Checkboxes
+  const homePage = new HomePage(page)
+  await page.goto(process.env.BASE_URL!)
+  await homePage.clickLink('Checkboxes')
 
-  // Navigate to the page
-  await page.goto('https://the-internet.herokuapp.com/checkboxes')
+  // Instantiate the Page Object - Checkboxes page
+  checkboxPage = new CheckboxPage(page)
 })
 
 test.describe('Checkboxes', () => {
