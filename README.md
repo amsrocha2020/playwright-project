@@ -1,4 +1,4 @@
-# Playwright Project
+# Playwright Web Project
 
 ## Overview
 
@@ -11,6 +11,7 @@ This project is a Playwright-based automated testing framework designed to test 
 - **Responsive Design Testing**: Validate how your web elements respond across various screen sizes.
 - **Page Navigation**: Automate page transitions and validate their behavior.
 - **Assertion Library**: Built-in assertions to verify the state of web elements.
+- **Code Quality**: Integrated ESLint for code linting and Prettier for code formatting.
 - **Customizable**: Easily extend or modify tests to suit your specific needs.
 
 ## Prerequisites
@@ -75,12 +76,36 @@ To view the test results:
 npx playwright show-report
 ```
 
+## Code Quality
+
+This project uses **ESLint** for maintaining code quality and **Prettier** for consistent code formatting.
+
+### Running ESLint
+
+To check for linting errors:
+
+```bash
+npx eslint .
+```
+
+### Running Prettier
+
+To format the code:
+
+```bash
+npx prettier --write .
+```
+
+You can also integrate ESLint and Prettier with your IDE for real-time linting and formatting.
+
 ## Project Structure
 
 - **`tests/`**: Contains all test files.
 - **`pages/`**: Page Object Model (POM) classes that encapsulate web elements and page interactions.
 - **`fixtures/`**: Setup and teardown scripts for reusable test setup.
 - **`playwright.config.ts`**: Configuration file for Playwright.
+- **`.eslintrc.js`**: Configuration file for ESLint.
+- **`.prettierrc`**: Configuration file for Prettier.
 
 ## Writing Tests
 
@@ -102,7 +127,3 @@ You can extend the framework by adding new tests, modifying existing ones, or cr
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
