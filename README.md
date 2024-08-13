@@ -112,6 +112,8 @@ You can also integrate ESLint and Prettier with your IDE for real-time linting a
 
 - **Parametrize and Dynamically Generate Tests**: Don’t hesitate to parametrize tests or dynamically generate them for repetitive testing scenarios. If you need to validate the same behavior across multiple pages, use an object and loop through it rather than duplicating the test code.
 
+- **Best Practices**: [Link Playwright Best Practices](https://playwright.dev/docs/best-practices)
+
 ## Project Structure
 
 - **`tests/`**: Contains all test files.
