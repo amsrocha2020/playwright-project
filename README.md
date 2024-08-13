@@ -1,4 +1,4 @@
-# Playwright Web Project
+# Playwright Web Testing Project
 
 ## Overview
 
@@ -27,7 +27,7 @@ Before you begin, ensure you have the following installed:
 
     ```bash
     git clone https://github.com/amsrocha2020/playwright-project.git
-    cd playwright-project
+    cd playwright-web-testing
     ```
 
 2. Install the dependencies:
@@ -59,7 +59,7 @@ npx playwright test
 To run a specific test file:
 
 ```bash
-npx playwright test e2e/dropdownList/tests/dropdownList.spec.ts
+npx playwright test e2e/forlderName/tests/example.spec.ts
 ```
 
 To run tests in a specific browser:
@@ -97,6 +97,20 @@ npx prettier --write .
 ```
 
 You can also integrate ESLint and Prettier with your IDE for real-time linting and formatting.
+
+## Important Points to Remember
+
+- **Assertions in Spec Files**: Always do all assertions in your spec files, not in the Page Object classes. This keeps your tests clean and your page objects focused on interaction logic.
+
+- **Page Interactions in Page Objects**: All page interactions, including locators, should reside in Page Object files. Avoid placing locators directly in spec files to maintain separation of concerns.
+
+- **Use Playwright's `expect` Assertions**: Playwright's `expect` assertions should be preferred over generic assertions like `toBe`. Playwright's built-in error handling provides better debugging and error messages.
+
+- **Leverage Fixtures**: Fixtures are extremely useful for setting up and tearing down tests, especially for sharing state between different tests.
+
+- **Component-Based Page Objects**: Utilize a component-based approach for Page Objects. For example, create page component classes for common elements like tables, which can be reused across multiple pages. This reduces code duplication. Check out this [discussion](https://github.com/microsoft/playwright/issues/1604#issuecomment-1004711489) for more insights.
+
+- **Parametrize and Dynamically Generate Tests**: Don’t hesitate to parametrize tests or dynamically generate them for repetitive testing scenarios. If you need to validate the same behavior across multiple pages, use an object and loop through it rather than duplicating the test code.
 
 ## Project Structure
 
