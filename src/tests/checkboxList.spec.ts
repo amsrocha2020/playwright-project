@@ -1,21 +1,14 @@
-import { test, expect } from '@playwright/test';
-import { HomePage } from '../pages/home.page';
-import { CheckboxPage } from '../pages/checkboxList.page';
+import { expect } from '@playwright/test';
+import { test } from '../fixtures';
 
-let checkboxPage: CheckboxPage;
-
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page, homePage }) => {
   // Open Homepage and click in the link Checkboxes
-  const homePage = new HomePage(page);
   await page.goto(process.env.BASE_URL!);
   await homePage.clickLink('Checkboxes');
-
-  // Instantiate the Page Object - Checkboxes page
-  checkboxPage = new CheckboxPage(page);
 });
 
 test.describe('Checkboxes', () => {
-  test('should check the first checkbox', async ({ page }) => {
+  test('should check the first checkbox', async ({ checkboxPage }) => {
     // Check the first checkbox
     await checkboxPage.checkFirstCheckbox();
 
@@ -24,7 +17,7 @@ test.describe('Checkboxes', () => {
     expect(isChecked).toBe(true);
   });
 
-  test('should uncheck the second checkbox', async ({ page }) => {
+  test('should uncheck the second checkbox', async ({ checkboxPage }) => {
     // Uncheck the second checkbox
     await checkboxPage.uncheckSecondCheckbox();
 
