@@ -1,14 +1,14 @@
-import { Locator, Page } from '@playwright/test'
+import { Locator, Page } from '@playwright/test';
 
 export class HomePage {
-  readonly page: Page
-  readonly checkboxLink: Locator
+  readonly page: Page;
+  readonly checkboxLink: Locator;
 
   constructor(page: Page) {
-    this.page = page
+    this.page = page;
   }
 
   async clickLink(linkOption: string) {
-    await this.page.getByRole('link', { name: linkOption }).click()
+    await this.page.getByRole('link', { name: linkOption }).click();
   }
 }
