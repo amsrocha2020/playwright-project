@@ -28,11 +28,13 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    /* Trace is collected for all tests, but traces are only retained (saved) if the test fails. */
+    trace: 'retain-on-failure',
+    /**
+     * Sets the maximum time allowed for each action (e.g., click, fill, etc.) to complete.
+     * The timeout is set to 1 minute (60,000 milliseconds) to accommodate potentially slow operations.
+     */
+    actionTimeout: 1 * 60 * 1000, // 2 minutes
   },
 
   /* Configure projects for major browsers */
