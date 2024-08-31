@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { AllureReporter } from 'allure-playwright';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 
@@ -25,7 +26,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['list'], ['allure-playwright']],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Trace is collected for all tests, but traces are only retained (saved) if the test fails. */
