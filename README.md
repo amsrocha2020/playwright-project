@@ -13,6 +13,8 @@ This project is a Playwright-based automated testing framework designed to test 
 - **Assertion Library**: Built-in assertions to verify the state of web elements.
 - **Code Quality**: Integrated ESLint for code linting and Prettier for code formatting.
 - **Customizable**: Easily extend or modify tests to suit your specific needs.
+- **Allure Reporting**: Integrated Allure for generating detailed test reports.
+- **TypeScript Support**: Configured `tsconfig.json` for TypeScript features like decorators, strict type checking, and more.
 
 ## Prerequisites
 
@@ -20,33 +22,72 @@ Before you begin, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/en/) (version 14.x or later)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [Allure Commandline](https://docs.qameta.io/allure/#_installing_a_commandline)
 
 ## Installation
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/amsrocha2020/playwright-project.git
-    cd playwright-web-testing
-    ```
+   ```bash
+   git clone https://github.com/amsrocha2020/playwright-project.git
+   cd playwright-web-testing
+   ```
 
 2. Install the dependencies:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
-    or if you prefer yarn:
+   or if you prefer yarn:
 
-    ```bash
-    yarn install
-    ```
+   ```bash
+   yarn install
+   ```
 
 3. Install Playwright browsers:
 
-    ```bash
-    npx playwright install
-    ```
+   ```bash
+   npx playwright install
+   ```
+
+4. Install Allure Report dependencies:
+
+   ```bash
+   npm i -D @playwright/test allure-playwright
+   ```
+
+5. Install Allure Commandline globally:
+
+   ```bash
+   npm install -g allure-commandline --save-dev
+   ```
+
+## TypeScript Configuration
+
+This project uses TypeScript for static typing and modern JavaScript features. The `tsconfig.json` file is set up with the following options:
+
+```json
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true
+  }
+}
+```
+
+### Key Configuration Options:
+
+- **`target`**: Specifies the ECMAScript target version. `es6` ensures compatibility with modern browsers.
+- **`module`**: Defines the module system. `commonjs` is used for Node.js environments.
+- **`experimentalDecorators`**: Enables support for experimental decorators, useful for adding metadata or behavior to classes and methods.
+- **`emitDecoratorMetadata`**: (Optional) Allows emitting metadata for decorated classes and methods, enabling reflection capabilities.
+- **`allowSyntheticDefaultImports`**: Facilitates importing modules with a default export more intuitively.
+- **`strict`**: Enables strict type-checking options to catch potential errors at compile time.
 
 ## Running Tests
 
@@ -59,7 +100,7 @@ npx playwright test
 To run a specific test file:
 
 ```bash
-npx playwright test e2e/forlderName/tests/example.spec.ts
+npx playwright test src/tests/example.spec.ts
 ```
 
 To run tests in a specific browser:
@@ -70,7 +111,27 @@ npx playwright test --project=firefox
 npx playwright test --project=webkit
 ```
 
-To view the test results:
+## Viewing Reports
+
+### Allure Report
+
+Generate and view an Allure report after running the tests:
+
+1. Generate the Allure report:
+
+   ```bash
+   npx allure generate ./allure-results --clean
+   ```
+
+2. Open the Allure report:
+
+   ```bash
+   npx allure open ./allure-report
+   ```
+
+### Playwright's Built-in Report
+
+To view the test results using Playwright's built-in report:
 
 ```bash
 npx playwright show-report
@@ -122,10 +183,11 @@ You can also integrate ESLint and Prettier with your IDE for real-time linting a
 - **`playwright.config.ts`**: Configuration file for Playwright.
 - **`.eslintrc.js`**: Configuration file for ESLint.
 - **`.prettierrc`**: Configuration file for Prettier.
+- **`tsconfig.json`**: TypeScript configuration file with compiler options.
 
 ## Writing Tests
 
-Tests are written using Playwright's API. Below is a basic example of a test:
+Tests are written using Playwright's API and TypeScript. Below is a basic example of a test:
 
 ```typescript
 import { test, expect } from '@playwright/test';
