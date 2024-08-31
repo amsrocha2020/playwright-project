@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
-import dotenv from 'dotenv';
-import path from 'path';
+import * as dotenv from 'dotenv';
+import * as path from 'path';
 
 // Read from ".env" file.
 dotenv.config({ path: path.resolve(__dirname, '.env') });
