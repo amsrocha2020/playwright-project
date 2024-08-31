@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "target": "es6", // or any other target you need
+      "module": "commonjs", // or any other module system you are using
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true, // Optional, if you need to use reflection metadata
+      // other options...
+    }
+  }
+  
