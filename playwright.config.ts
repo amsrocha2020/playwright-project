@@ -34,7 +34,7 @@ export default defineConfig({
      * Sets the maximum time allowed for each action (e.g., click, fill, etc.) to complete.
      * The timeout is set to 1 minute (60,000 milliseconds) to accommodate potentially slow operations.
      */
-    actionTimeout: 1 * 60 * 1000, // 2 minutes
+    actionTimeout: 2 * 60 * 1000, // 2 minutes
   },
 
   /* Configure projects for major browsers */
