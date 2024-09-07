@@ -4,6 +4,7 @@ import { test } from '../fixtures';
 test.beforeEach(async ({ page, homePage }) => {
   // Open Homepage and click in the link Checkboxes
   await page.goto(process.env.BASE_URL!);
+  await page.waitForLoadState();
   await homePage.clickLink('Checkboxes');
 });
 
