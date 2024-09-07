@@ -30,7 +30,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Trace is collected for all tests, but traces are only retained (saved) if the test fails. */
-    trace: 'retain-on-failure',
+    trace: 'on-first-retry',
     /**
      * Sets the maximum time allowed for each action (e.g., click, fill, etc.) to complete.
      * The timeout is set to 1 minute (60,000 milliseconds) to accommodate potentially slow operations.
