@@ -26,11 +26,15 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: 4,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['list'], ['allure-playwright']],
+  reporter: [
+    ['list'],
+    ['allure-playwright'],
+    ['html', { outputFolder: 'playwright-report' }],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Trace is collected for all tests, but traces are only retained (saved) if the test fails. */
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
     /**
      * Sets the maximum time allowed for each action (e.g., click, fill, etc.) to complete.
      * The timeout is set to 1 minute (60,000 milliseconds) to accommodate potentially slow operations.
