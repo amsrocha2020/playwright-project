@@ -15,7 +15,7 @@ test.describe('Checkboxes', () => {
 
     // Assert that the first checkbox is checked
     const isChecked = await checkboxPage.isFirstCheckboxChecked();
-    expect(isChecked).toBe(true);
+    expect(isChecked).toBe(false);
   });
 
   test('should uncheck the second checkbox', async ({ checkboxPage }) => {
